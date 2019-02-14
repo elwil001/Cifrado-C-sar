@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Oscura</title>
+    <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+    html{
+      background-color: black;
+    }
+    @font-face {
+      font-family: 'Data';
+      src: url('./fonts/JLSDataGothicR_NC.otf')
+    }
+    h1, h2, h3{
+      font-family: Data;
+      color: white;
+      padding: 10px;
+    }
+    h1{
+      font-size: 3em;
+    }
+    p, label, button, span, select {
+      color: white;
+      font-family: Helvetica;
+      font-size: 1.4em;
+    }
+    button{
+      color: black;
+      font-size: 1em;
+      background-color: white;
+    }
+    button:hover{
+      cursor: pointer;
+    }
+    button:disabled{
+      background-color: #C0C0C0;
+      cursor: auto;
+    }
+    header{
+      text-align: center;
+      border-bottom: solid 1px white;
+      padding: 50px;
+    }
+    main{
+      margin: auto;
+      padding: 40px;
+    }
+    div{
+      padding: 20px;
+    }
+    textarea{
+      width: 80%;
+      height: 200px;
+    }
+    select{
+      background-color: white;
+      color: black;
+    }
+    .text{
+      display:flex;
+      flex-direction: column;
+      width:90%;
+      margin:auto;
+    }
+    .cifrar, .descifrar{
+      flex: 1;
+    }
+    .botons{
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+    }
+    .botons button{
+      width: 100px;
+    }
+    #resulto-cif, #resulto-descif{
+      display:none;
+    }
+    #resulto-cif p, #resulto-descif p{
+      padding: 10px;
+    }
+    #muro-mensajes{
+      border-top: solid 1px white;
+      text-align: center;
+    }
+    #muro-mensajes div{
+      text-align: left;
+      border-bottom: solid 1px white;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenidos a Oscura</h1>
+      <h3>La red anti-social</h3>
+    </header>
+    <main>
+    <form>
+      <label for="offset">Elija su offset:</label>
+      <select name="offset">
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+      <div class="text">
+      <div class="cifrar">
+        <label for="nocifrado"><p>Inserte un mensaje a cifrar:</p></label>
+        <textarea name="nocifrado" id="nocifrado"></textarea>
+        <div class="botons">
+        <button type="button" name="boton-cifrar" id="boton-cifrar" class="boton">Cifre mi mensaje</button>
+        <button type="button" name="borrar-nocifrado" id="borrar-nocifrado" class="boton">Borrar</button>
+        </div>
+        <span id="error-nocifrado"></span>
+        <div id="resulto-cif">
+          <p>Mensaje cifrado:</p>
+          <span id="mensaje-cifrado">
+          </span>
+          <div class="botons">
+          <button type="button" name="archivar-mensaje" id="archivar-mensaje" class="boton">Añadir mensaje a archivo</button>
+          <button type="button" name="resetear-nocifrado" id="resetear-nocifrado" class="boton">Cifrar otro mensaje</button>
+          </div>
+        </div>
+      </div>
+      <div class="descifrar">
+        <label for="cifrado"><p>Inserte un mensaje a descifrar:</p></label>
+        <textarea name="cifrado" id="cifrado"></textarea>
+        <div class="botons">
+        <button type="button" name="boton-descifrar" id="boton-descifrar" class="boton">Descifre mi mensaje</button>
+        <button type="button" name="borrar-cifrado" id="borrar-cifrado" class="boton">Borrar</button>
+        </div>
+        <span id="error-cifrado"></span>
+        <div id="resulto-descif">
+          <p>Mensaje descifrado:</p>
+          <span id="mensaje-descifrado">
+          </span>
+          <div class="botons">
+            <button type="button" name="resetear-cifrado" id="resetear-cifrado" class="boton">Descifrar otro mensaje</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+    </main>
+    <div id="muro-mensajes">
+      <h2>Archivo de Mensajes</h2>
+    </div>
+  </body>
+  <footer>
+    <script type="module" src="index.js"></script>
+  </footer>
+</html>
